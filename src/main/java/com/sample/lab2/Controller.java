@@ -2,20 +2,44 @@ package com.sample.lab2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Controller {
-    public Button btnMain;
-    int clickCounter = 0;
-    public TextField txtLicznik, txtLicznikRe;
+    public AnchorPane ap, dodajKontoAP, przegladKontAP;
+    public TabPane tabPane;
+    public Tab dodajKonto, przegladKont;
+    public ImageView logoApp;
+    public TextField logField, wwwField, opisField;
+    public PasswordField pasField;
+    public Button enterBtn;
+    public String sLogField, sWwwField, sOpisField, sPasField;
+    public Label ifEmptyLabel;
 
-    public void onBtnAction(ActionEvent actionEvent) {
-        txtLicznikRe.setText(" ");
-        txtLicznik.setText("Klikniecie nr: " + ++clickCounter);
-        if (clickCounter == 1 || clickCounter == 5) {
-            txtLicznikRe.setText("I jeszcze raz!");
+    private boolean iSEmpty() {
+        if (logField.toString().isEmpty()) {
+            return false;
         }
+        if (wwwField.toString().isEmpty()) {
+            return false;
+        }
+        if (pasField.toString().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public void EnterBtnOnAction(ActionEvent actionEvent) {
+        if (iSEmpty()){
+            ifEmptyLabel.setText("Pole: \"E-mail\" lub \"Strona WWW\" lub \"Hasło\" jest puste!");
+            return;
+        }
+        ifEmptyLabel.setText(" ");
+        sLogField = logField.toString();
+        sWwwField = wwwField.toString();
+        sOpisField = opisField.toString();
+        sPasField = pasField.toString();
     }
 }
