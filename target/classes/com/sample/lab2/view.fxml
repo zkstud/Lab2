@@ -5,6 +5,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,7 +26,7 @@
                               <Image url="@../../../../java/com/sample/lab2/images/logo_app.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="logField" layoutX="122.0" layoutY="156.0" promptText="E-mail lub Login" />
+                        <TextField fx:id="logField" layoutX="122.0" layoutY="156.0" promptText="E-mail \ Login" />
                         <TextField fx:id="wwwField" layoutX="369.0" layoutY="156.0" promptText="Strona WWW" />
                         <PasswordField fx:id="pasField" layoutX="122.0" layoutY="213.0" promptText="Hasło" />
                         <TextField fx:id="opisField" layoutX="369.0" layoutY="213.0" promptText="Opis (opcjonalnie)" />
@@ -36,7 +38,21 @@
           </Tab>
           <Tab fx:id="przegladKont" text="Przegląd dodanych kont">
             <content>
-              <AnchorPane fx:id="przegladKontAP" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: ffffff;" />
+              <AnchorPane fx:id="przegladKontAP" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="334.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <TableView fx:id="daneTableView" prefHeight="371.0" prefWidth="435.0">
+                          <columns>
+                            <TableColumn fx:id="logColumn" prefWidth="123.0" text="E-mail \ Login" />
+                            <TableColumn fx:id="pasColumn" prefWidth="107.0" text="Hasło" />
+                              <TableColumn fx:id="wwwColumn" prefWidth="99.0" text="Strona WWW" />
+                              <TableColumn fx:id="opisColumn" prefWidth="105.0" text="Opis" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="copyBtn" layoutX="480.0" layoutY="26.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="100.0" text="Skopiuj" />
+                        <Button fx:id="insertBtn" layoutX="480.0" layoutY="159.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="100.0" text="Wstaw" />
+                        <Button fx:id="deleteBtn" layoutX="480.0" layoutY="294.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="100.0" text="Usuń" />
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
         </tabs>

@@ -1,11 +1,14 @@
 package com.sample.lab2;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import java.util.List;
 
 public class Controller {
     public AnchorPane ap, dodajKontoAP, przegladKontAP;
@@ -14,9 +17,10 @@ public class Controller {
     public ImageView logoApp;
     public TextField logField, wwwField, opisField;
     public PasswordField pasField;
-    public Button enterBtn;
-    public String sLogField, sWwwField, sOpisField, sPasField;
+    public Button enterBtn, copyBtn, insertBtn, deleteBtn;
     public Label ifEmptyLabel;
+    public TableColumn logColumn, pasColumn, wwwColumn, opisColumn;
+    public TableView daneTableView;
 
     private boolean iSEmpty() {
         if (logField.toString().isEmpty()) {
@@ -32,14 +36,10 @@ public class Controller {
     }
 
     public void EnterBtnOnAction(ActionEvent actionEvent) {
-        if (iSEmpty()){
+        if (iSEmpty()) {
             ifEmptyLabel.setText("Pole: \"E-mail\" lub \"Strona WWW\" lub \"Hasło\" jest puste!");
             return;
         }
-        ifEmptyLabel.setText(" ");
-        sLogField = logField.toString();
-        sWwwField = wwwField.toString();
-        sOpisField = opisField.toString();
-        sPasField = pasField.toString();
+
     }
 }
